@@ -1,6 +1,5 @@
 import { verify } from 'jsonwebtoken';
 
-
 export const auth = async (req,res,next)=>{
 
     const authHeader = req.header('Authorization');
@@ -26,3 +25,4 @@ export const auth = async (req,res,next)=>{
         return res.json({error : "unauthorised"});
     }
 }
+
