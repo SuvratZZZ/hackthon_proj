@@ -5,12 +5,14 @@ const cors = require("cors");
 
 const participantRoutes = require("./routes/participants");
 const visitRoutes = require("./routes/visits");
+const { cncRou } = require("./routes/cncRoutes");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 app.use("/api/participants", participantRoutes);
+app.use("/api/cnc", cncRou);
 app.use("/api/visits", visitRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {

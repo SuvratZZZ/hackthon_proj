@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { auth } from "../middleware/auth";
+const express = require("express") ;
+const { auth } = require("../middleware/auth");
 
-const cncRou = Router();
+export const cncRou = express.Router();
 
-cncRou.get('/',auth,(req,res)=>{
+cncRou.get('/',auth,iscnc,(req,res)=>{
     
 })
