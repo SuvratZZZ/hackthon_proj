@@ -12,6 +12,8 @@ app.use(cors());
 
 app.use("/api/participants", participantRoutes);
 app.use("/api/visits", visitRoutes);
+app.use("/api/crc", crcRoutes);
+app.use("/api/login", loginRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,

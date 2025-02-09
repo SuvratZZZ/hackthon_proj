@@ -6,6 +6,7 @@ const AuthForm = () => {
   const [tab, setTab] = useState(0);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+
   const onSubmit = (data) => {
     console.log("Form Data:", data);
   };
@@ -81,7 +82,7 @@ const AuthForm = () => {
               <TextField fullWidth label="Primary Language(s)" {...register("language")} margin="normal" />
             </>
           )}
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+          <Button onClick={handleSubmit} type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
             {tab === 0 ? "Login" : "Register"}
           </Button>
         </form>

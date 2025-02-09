@@ -1,19 +1,13 @@
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Sector } from 'recharts';
 
 // Sample random user data
 const generateRandomValue = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const healthMetrics = [
-  { name: 'Heart Rate (Pulse)', unit: 'bpm', normal: [60, 100], userValue: generateRandomValue(50, 110) },
-  { name: 'Blood Pressure (Systolic)', unit: 'mmHg', normal: [90, 120], userValue: generateRandomValue(80, 140) },
-  { name: 'Blood Pressure (Diastolic)', unit: 'mmHg', normal: [60, 80], userValue: generateRandomValue(50, 90) },
-  { name: 'Respiratory Rate', unit: 'breaths/min', normal: [12, 20], userValue: generateRandomValue(10, 25) },
-  { name: 'Body Temperature', unit: '°F', normal: [97, 99], userValue: generateRandomValue(95, 102) },
-  { name: 'Oxygen Saturation (SpO₂)', unit: '%', normal: [95, 100], userValue: generateRandomValue(85, 100) },
-  { name: 'Blood Glucose Levels', unit: 'mg/dL', normal: [70, 99], userValue: generateRandomValue(60, 130) },
-];
+
+
+
 
 const getCategory = (value, normalRange) => {
   if (value < normalRange[0]) return 'Low';
@@ -28,6 +22,20 @@ const COLORS = {
 };
 
 function Report() {
+
+  const [healthMetrics,sethealthMetrics] = useState([
+    { name: 'Heart Rate (Pulse)', unit: 'bpm', normal: [60, 100], userValue: generateRandomValue(50, 110) },
+    { name: 'Blood Pressure (Systolic)', unit: 'mmHg', normal: [90, 120], userValue: generateRandomValue(80, 140) },
+    { name: 'Blood Pressure (Diastolic)', unit: 'mmHg', normal: [60, 80], userValue: generateRandomValue(50, 90) },
+    { name: 'Respiratory Rate', unit: 'breaths/min', normal: [12, 20], userValue: generateRandomValue(10, 25) },
+    { name: 'Body Temperature', unit: '°F', normal: [97, 99], userValue: generateRandomValue(95, 102) },
+    { name: 'Oxygen Saturation (SpO₂)', unit: '%', normal: [95, 100], userValue: generateRandomValue(85, 100) },
+    { name: 'Blood Glucose Levels', unit: 'mg/dL', normal: [70, 99], userValue: generateRandomValue(60, 130) },
+  ]);
+
+  // useEffect(async()=>{
+
+  // },[])
   return (
     <Box p={3}>
       <Typography variant="h2" gutterBottom>Health Reports</Typography>
